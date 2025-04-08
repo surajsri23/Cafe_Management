@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Café Management System for online ordering">
+    <meta name="theme-color" content="#FF6F61"> <!-- Changed theme color -->
+    <title>Café Delight - Order Online</title>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <!-- <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        .animate-fade-in { animation: fadeIn 1s ease-in; }
+        .animate-slide-up { animation: slideUp 0.8s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .offer-banner { background-color: #FF6F61; color: #E1FFF8; padding: 10px; text-align: center; font-weight: bold; }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-[#E1FFF8] via-[#BCF4E4] to-[#C8D7D7] min-h-screen font-['Poppins']">
+    <!-- Navbar -->
+    <nav class="bg-[#2E4B2A]/80 backdrop-blur-md border-b border-[#24B58D]/20 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <svg class="w-8 h-8 text-[#17D4A0] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 8c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0-12C6.48 4 2 8.48 2 14s4.48 10 10 10 10-4.48 10-10S17.52 4 12 4z"></path>
+                    </svg>
+                    <span class="text-[#E1FFF8] text-xl font-bold">Café Delight</span>
+                </div>
+                <div class="md:hidden">
+                    <button type="button" onclick="document.querySelector('.mobile-menu').classList.toggle('hidden')"
+                        class="text-[#E1FFF8] hover:text-[#17D4A0] focus:outline-none" aria-label="Toggle menu">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="hidden md:flex md:items-center md:space-x-4">
+                    <a href="#home" class="text-[#E1FFF8] hover:bg-[#24B58D]/20 px-3 py-2 rounded-md transition-all">Home</a>
+                    <a href="#menu" class="text-[#E1FFF8] hover:bg-[#24B58D]/20 px-3 py-2 rounded-md transition-all">Menu</a>
+                    <a href="#cart" class="text-[#E1FFF8] hover:bg-[#24B58D]/20 px-3 py-2 rounded-md transition-all">Cart</a>
+                    <a href="#checkout" class="bg-[#17D4A0] text-[#2E4B2A] px-4 py-2 rounded-md hover:bg-[#23E8B9] transition-all">Checkout</a>
+                </div>
+            </div>
+            <div class="mobile-menu hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#home" class="text-[#E1FFF8] block px-3 py-2 rounded-md hover:bg-[#24B58D]/20 transition-all">Home</a>
+                    <a href="#menu" class="text-[#E1FFF8] block px-3 py-2 rounded-md hover:bg-[#24B58D]/20 transition-all">Menu</a>
+                    <a href="#cart" class="text-[#E1FFF8] block px-3 py-2 rounded-md hover:bg-[#24B58D]/20 transition-all">Cart</a>
+                    <a href="#checkout" class="bg-[#17D4A0] text-[#2E4B2A] block px-4 py-2 rounded-md hover:bg-[#23E8B9] transition-all">Checkout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Offer Banner -->
+    <div class="offer-banner animate-fade-in">
+        🎉 Welcome to Café Delight! Enjoy a special offer: 20% off on your first order! 🎉
+    </div>
+
+    <!-- Menu Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="menu">
+        <div class="bg-[#E1FFF8]/80 backdrop-blur-md rounded-xl shadow-2xl p-6 sm:p-8 border border-[#17D4A0]/20">
+            <h2 class="text-3xl sm:text-4xl font-bold text-[#2E4B2A] mb-8 sm:mb-12 text-center">Our Menu</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Food Items -->
+                <div class="bg-[#BCF4E4]/50 rounded-lg p-4 sm:p-6 transform hover:scale-105 transition duration-300 border border-[#24B58D]/30 hover:border-[#17D4A0]">
+                    <img src="{{ url_for('static', filename='images/classic_burger.jpg') }}" alt="Burger" class="w-full h-32 sm:h-40 object-cover rounded-md mb-4">
+                    <h3 class="text-lg sm:text-xl font-semibold text-[#2E4B2A] mb-2">Classic Burger</h3>
+                    <p class="text-[#24B58D] mb-3">Rs. 99.00</p>
+                    <button onclick="addToCart('Classic Burger', 99.00)" class="w-full bg-[#17D4A0] text-[#2E4B2A] px-4 py-2 rounded-md hover:bg-[#23E8B9] transition-all">Add to Cart</button>
+                </div>
+                <div class="bg-[#BCF4E4]/50 rounded-lg p-4 sm:p-6 transform hover:scale-105 transition duration-300 border border-[#24B58D]/30 hover:border-[#17D4A0]">
+                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="Pizza" class="w-full h-32 sm:h-40 object-cover rounded-md mb-4">
+                    <h3 class="text-lg sm:text-xl font-semibold text-[#2E4B2A] mb-2">Margherita Pizza</h3>
+                    <p class="text-[#24B58D] mb-3">Rs. 199.00</p>
+                    <button onclick="addToCart('Margherita Pizza', 199.00)" class="w-full bg-[#17D4A0] text-[#2E4B2A] px-4 py-2 rounded-md hover:bg-[#23E8B9] transition-all">Add to Cart</button>
+                </div>
+                <div class="bg-[#BCF4E4]/50 rounded-lg p-4 sm:p-6 transform hover:scale-105 transition duration-300 border border-[#24B58D]/30 hover:border-[#17D4A0]">
+                    <img src="{{ url_for('static', filename='images/Crispy_Fries.jpg') }}" alt="Burger" class="w-full h-32 sm:h-40 object-cover rounded-md mb-4">
+                    <h3 class="text-lg sm:text-xl font-semibold text-[#2E4B2A] mb-2">Crispy Fries</h3>
+                    <p class="text-[#24B58D] mb-3">Rs. 69.00</p>
+                    <button onclick="addToCart('Crispy Fries', 69.00)" class="w-full bg-[#17D4A0] text-[#2E4B2A] px-4 py-2 rounded-md hover:bg-[#23E8B9] transition-all">Add to Cart</button>
+                </div>
+                <!-- Drinks -->
+                <div class="bg-[#BCF4E4]/50 rounded-lg p-4 sm:p-6 transform hover:scale-105 transition duration-300 border border-[#24B58D]/30 hover:border-[#17D4A0]">
+                    <img src="{{ url_for('static', filename='images/Cappuccino.jpg') }}" alt="Burger" class="w-full h-32 sm:h-40 object-cover rounded-md mb-4">
+                    <h3 class="text-lg sm:text-xl font-semibold text-[#2E4B2A] mb-2">Cappuccino</h3>
+                    <p class="text-[#24B58D] mb-3">Rs. 99.00</p>
+                    <button onclick="addToCart('Cappuccino', 99.00)" class="w-full bg-[#17D4A0] text-[#2E4B2A] px-4 py-2 rounded-md hover:bg-[#23E8B9] transition-all">Add to Cart</button>
+                </div>
+                <div class="bg-[#BCF4E4]/50 rounded-lg p-4 sm:p-6 transform hover:scale-105 transition duration-300 border border-[#24B58D]/30 hover:border-[#17D4A0]">
+                    <img src="{{ url_for('static', filename='images/Cola.jpg') }}" alt="Burger" class="w-full h-32 sm:h-40 object-cover rounded-md mb-4">
+                    <h3 class="text-lg sm:text-xl font-semibold text-[#2E4B2A] mb-2">Chilled Cola</h3>
+                    <p class="text-[#24B58D] mb-3">Rs. 50.00</p>
+                    <button onclick="addToCart('Chilled Cola', 50.00)" class="w-full bg-[#17D4A0] text-[#2E4B2A] px-4 py-2 rounded-md hover:bg-[#23E8B9] transition-all">Add to Cart</button>
+                </div>
+                <div class="bg-[#BCF4E4]/50 rounded-lg p-4 sm:p-6 transform hover:scale-105 transition duration-300 border border-[#24B58D]/30 hover:border-[#17D4A0]">
+                    <img src="{{ url_for('static', filename='images/tea.jpg') }}" alt="Burger" class="w-full h-32 sm:h-40 object-cover rounded-md mb-4">
+                    <h3 class="text-lg sm:text-xl font-semibold text-[#2E4B2A] mb-2">Masala Tea</h3>
+                    <p class="text-[#24B58D] mb-3">Rs. 50.00</p>
+                    <button onclick="addToCart('Masala Tea', 50.00)" class="w-full bg-[#17D4A0] text-[#2E4B2A] px-4 py-2 rounded-md hover:bg-[#23E8B9] transition-all">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="cart">
+        <div class="bg-[#E1FFF8]/80 backdrop-blur-md rounded-xl shadow-2xl p-6 sm:p-8 border border-[#17D4A0]/20">
+            <h2 class="text-3xl sm:text-4xl font-bold text-[#2E4B2A] mb-6 sm:mb-8 text-center">Your Cart</h2>
+            <div id="cart-items" class="space-y-4 text-[#24B58D]"></div>
+            <div class="flex justify-between items-center mt-4">
+                <span class="text-[#2E4B2A] font-semibold">Total:</span>
+                <span id="cart-total" class="text-[#2E4B2A] font-semibold">Rs. 0.00</span>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+                <button onclick="proceedToCheckout()" class="px-6 sm:px-8 py-3 bg-[#17D4A0] text-[#2E4B2A] font-semibold rounded-lg hover:bg-[#23E8B9] transition-all">Proceed to Checkout</button>
+                <button onclick="printBill()" class="px-6 sm:px-8 py-3 bg-[#24B58D] text-[#E1FFF8] font-semibold rounded-lg hover:bg-[#A6D3A6] transition-all">Print Bill</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="checkout">
+        <div class="bg-[#E1FFF8]/80 backdrop-blur-md rounded-xl shadow-2xl p-6 sm:p-8 border border-[#17D4A0]/20">
+            <h2 class="text-3xl sm:text-4xl font-bold text-[#2E4B2A] mb-6 sm:mb-8 text-center">Checkout</h2>
+            <form id="checkout-form" class="space-y-6 max-w-md mx-auto">
+                <div>
+                    <label class="block text-[#2E4B2A] mb-2 font-medium">Table Number</label>
+                    <select id="table-number" class="w-full px-4 py-3 rounded-lg bg-[#BCF4E4]/50 border border-[#24B58D]/30 text-[#2E4B2A] focus:outline-none focus:ring-2 focus:ring-[#17D4A0] transition-all" required>
+                        <option value="">Select Table</option>
+                        <option value="1">Table 1</option>
+                        <option value="2">Table 2</option>
+                        <option value="3">Table 3</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-[#2E4B2A] mb-2 font-medium">Customer Name</label>
+                    <input type="text" id="customer-name" class="w-full px-4 py-3 rounded-lg bg-[#BCF4E4]/50 border border-[#24B58D]/30 text-[#2E4B2A] focus:outline-none focus:ring-2 focus:ring-[#17D4A0] transition-all" placeholder="Enter your name" required>
+                </div>
+                <div class="flex justify-center">
+                    <button type="submit" class="px-6 sm:px-8 py-3 bg-gradient-to-r from-[#17D4A0] to-[#23E8B9] hover:from-[#23E8B9] hover:to-[#FFD54F] text-[#2E4B2A] font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#17D4A0]/25">
+                        Place Order
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <!-- Footer -->
+    <footer class="bg-[#2E4B2A]/80 backdrop-blur-md mt-12 border-t border-[#24B58D]/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex flex-col sm:flex-row justify-between items-center">
+                <p class="text-[#E1FFF8] text-base">© 2025 Café Delight. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 sm:mt-0">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="info">
+                        <h2 class="text-3xl sm:text-4xl font-bold text-[#2E4B2A] mb-6 sm:mb-8 text-center">Information</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-2xl font-semibold text-[#2E4B2A]">Privacy Policy</h3>
+                                <p class="text-[#2E4B2A]">
+                                    At Café Delight, we value your privacy. We collect personal information only to enhance your experience and process your orders. Your data will never be shared with third parties without your consent.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-[#2E4B2A]">Terms of Service</h3>
+                                <p class="text-[#2E4B2A]">
+                                    By using our services, you agree to our terms and conditions. We reserve the right to modify these terms at any time. Please review them regularly to stay informed about any changes.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-[#2E4B2A]">Contact Us</h3>
+                                <p class="text-[#2E4B2A]">
+                                    If you have any questions or concerns, feel free to reach out to us at <a href="mailto:info@cafedelight.com" class="text-[#17D4A0]">info@cafedelight.com</a> or call us at <span class="text-[#17D4A0]">+919104007172</span>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

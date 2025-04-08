@@ -1,0 +1,30 @@
+
+
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*.env
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Tailwind CSS
+static/css/styles.css  # Exclude compiled CSS (re-generated on build)
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Editor-specific
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
