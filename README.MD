@@ -75,11 +75,11 @@ Open your browser and navigate to:
 http://127.0.0.1:5000
 ```
 ## 💡 Usage
--Browse Menu: Scroll to the "Our Menu" section and view available items.
--Add to Cart: Click "Add to Cart" on any item to add it to your cart.
--View Cart: Scroll to the "Your Cart" section to see your items and total.
--Checkout: Click "Proceed to Checkout," select a table, enter your name, and submit the order.
--Print Bill: From the cart, click "Print Bill" to generate a printable receipt.
+- **Browse Menu**: Scroll to the "Our Menu" section and view available items.
+- **Add to Cart**: Click "Add to Cart" on any item to add it to your cart.
+- **View Cart**: Scroll to the "Your Cart" section to see your items and total.
+- **Checkout**: Click "Proceed to Checkout," select a table, enter your name, and submit the order.
+- **Print Bill**: From the cart, click "Print Bill" to generate a printable receipt.
 
 ## 📌 License
 -This project is licensed under the MIT License.
