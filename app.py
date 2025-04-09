@@ -4,14 +4,14 @@ app = Flask(__name__)
 
 menu = {
     "Food": [
-        {"name": "Classic Burger", "price": 5.99, "image": "https://images.unsplash.com/photo-1565299624946-baccd3051811"},
-        {"name": "Margherita Pizza", "price": 8.99, "image": "https://images.unsplash.com/photo-1550547660-d9450f859349"},
-        {"name": "Crispy Fries", "price": 2.99, "image": "https://images.unsplash.com/photo-1593560708920-61dd98c60f23"}
+        {"name": "Classic Burger", "price": 99.00, "image": "/static/images/classic_burger.jpg"},
+        {"name": "Margherita Pizza", "price": 199.00, "image": "/static/images/Margherita_Pizza.jpg"},
+        {"name": "Crispy Fries", "price": 69.00, "image": "/static/images/Crispy_Fries.jpg"}
     ],
     "Drinks": [
-        {"name": "Cappuccino", "price": 1.99, "image": "https://images.unsplash.com/photo-1512568400610-62da28bc8a57"},
-        {"name": "Chilled Cola", "price": 1.49, "image": "https://images.unsplash.com/photo-1572490364222-13f0f8c0a768"},
-        {"name": "Masala Tea", "price": 1.79, "image": "https://images.unsplash.com/photo-1606163026168-08f9e5b0eabf"}
+        {"name": "Cappuccino", "price": 99.00, "image": "/static/images/Cappuccino.jpg"},
+        {"name": "Chilled Cola", "price": 50.00, "image": "/static/images/cola.jpg"},
+        {"name": "Masala Tea", "price": 50.00, "image": "/static/images/tea.jpg"}
     ]
 }
 
