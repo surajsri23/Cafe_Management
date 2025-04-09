@@ -66,13 +66,12 @@ npx tailwindcss -i input.css -o static/css/styles.css --watch
 ```
 5. Run the Flask Application
 Run this in another terminal:
-
-
+```bash
 python app.py
+```
 6. Access the Application
 Open your browser and navigate to:
-
-bash
+```bash
 http://127.0.0.1:5000
 ```
 ##💡 Usage
