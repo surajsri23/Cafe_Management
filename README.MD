@@ -1,5 +1,5 @@
 
-#☕ Cafe Management Web App
+# ☕ Cafe Management Web App
 - This is a simple Flask-based Cafe Management System designed to demonstrate core web development skills using Python, Flask, HTML, CSS, and Render deployment.
 
 - 🔗 Live Demo: https://cafe-management-r7tc.onrender.com
