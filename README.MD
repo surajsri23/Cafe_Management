@@ -1,4 +1,21 @@
-# ☕ Café Management System
+
+#☕ Cafe Management Web App
+- This is a simple Flask-based Cafe Management System designed to demonstrate core web development skills using Python, Flask, HTML, CSS, and Render deployment.
+
+- 🔗 Live Demo: https://cafe-management-r7tc.onrender.com
+
+# 🔧 Features:
+- Interactive menu display
+
+- Add to cart and order summary
+
+- Dynamic routing using Flask
+
+- Deployed live using Render
+
+- Fully responsive and clean UI
+
+- ⚡ This project is part of my personal practice to demonstrate full-stack capabilities and deploy real-time Python applications.
 
 ![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
 
